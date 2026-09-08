@@ -1,0 +1,9 @@
+Package: com.pm.minishortcutprogress
+Name: MiniShortcutProgress
+Version: 0.1.0
+Architecture: iphoneos-arm64e
+Description: Tiny Shortcuts running indicator for RootHide/Relaxin. Designed for iPhone XR on iOS 16.5-17.2 and uses Powercuts workflow start/stop Darwin notifications.
+Maintainer: PM
+Author: PM + ChatGPT
+Section: Tweaks
+Depends: firmware (>= 16.0), com.anthopak.powercuts
