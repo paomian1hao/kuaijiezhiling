@@ -1,1 +1,33 @@
 
+name: Build RootHide DEB
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Theos
+        uses: waruhachi/theos-action@v1
+        with:
+          sdk: latest
+
+      - name: Build RootHide package
+        run: |
+          export THEOS_PACKAGE_SCHEME=roothide
+          make clean
+          make package FINALPACKAGE=1
+
+      - name: Upload DEB
+        uses: actions/upload-artifact@v4
+        with:
+          name: MiniShortcutProgress-RootHide-DEB
+          path: packages/*.deb
